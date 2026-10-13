@@ -611,6 +611,7 @@ flowchart LR
 - [VisuAlgo](https://visualgo.net): animations for sorting, trees, graphs
 
 **System Design**
+- Ashish Pratap System design document articles
 - [ByteByteGo YouTube](https://www.youtube.com/@ByteByteGo): short videos for each concept
 - [Hello Interview](https://www.hellointerview.com/learn/system-design): walkthroughs of Ticketmaster, Uber, WhatsApp, and more
 - [System Design Primer (GitHub)](https://github.com/donnemartin/system-design-primer)
