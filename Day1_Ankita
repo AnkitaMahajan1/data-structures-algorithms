@@ -1,0 +1,75 @@
+###########################################################DSA########################################################################
+#1. Two Sum
+class Solution:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        freq = {}
+        result = []
+        for i in range(0,len(nums)):
+            if target - nums[i] in freq:
+                result.append(freq[target - nums[i]])
+                result.append(i)
+            else:
+                freq[nums[i]] = i
+        return result
+
+nums = [3,3]
+target = 6
+
+obj = Solution()
+print(obj.twoSum(nums, target))
+
+#2. Contains Duplicate
+class Solution:
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        unique = set()
+        for i in nums:
+            if i in unique:
+                return True
+            unique.add(i)
+        return False
+
+nums = [1,2,3,1]
+
+obj = Solution()
+print(obj.containsDuplicate(nums))
+
+#3. Check anagram
+class Solution:
+  def checkAnagram(self, s: str, t: str) -> bool:
+    new_s = sorted(s)
+    new_t = sorted(t)
+    return new_s == new_t
+
+obj = Solution()
+s = "anagram"
+t = "nagaram"
+print(obj.checkAnagram(s, t))
+
+##############################################################System Design##################################################################
+Client-server model, DNS, IP, HTTP vs HTTPS, TCP vs UDP.
+
+1. Client-server model
+Client server is a netword architecture in which client sends a request to the server, server processes the request and sends back a response.
+Client: a frontend sends a request to server, for login
+Server: processes the request authenticate and sends back a response if authorized or not
+
+2. DNS (Domain Name Server)
+DNS is a translator which helps to match requests with the servers IP address.
+for ex: for bookmyshow.com the IP address matching happens with the help of DNS
+
+3. HTTP vs HTTPS (Hyper text transfer protocol and Hyper text transfer protocol Secured)
+HTTP sends deta without encryption while HTTPS sends encrypted data, that is why HTTPS is considered more secure.
+
+4. TCP vs UDP
+TCP (Trasmission control protocol): TCP is more connection oriented, In which data is send sequentially and no retransmits in case of lost data. Eg. emails and downloading files
+UDP(User Datagram Protocol): it is connection, it is fast, for fast connection and sending live data. eg. YT live stream, online gaming
+
+5.what happens when you type bookmyshow.com and press Enter: DNS lookup, TCP + TLS handshake, HTTP request, server response, browser render.
+The browser checks its own cache, then asks DNS for the site's IP address.
+A TCP 3-way handshake connects the browser to that IP address.
+A TLS handshake sets up encryption, because the site uses HTTPS.
+The browser sends an HTTP GET / request.
+The server, usually through a load balancer, sends back the HTML.
+The browser parses the HTML, downloads the CSS, JS and images (often from a CDN), and renders the page.
+
+
