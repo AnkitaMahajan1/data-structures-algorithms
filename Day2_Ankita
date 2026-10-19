@@ -1,0 +1,28 @@
+###############################################DSA DAY2 ##################################################################
+#1. Best Time to Buy and Sell Stock
+class Solution:
+    def maxProfit(self, prices: list[int]) -> int:
+        left = 0
+        maxi = 0
+        for right in range(1, len(prices)):
+            if prices[right] - prices[left] < 0:
+                left = right
+            maxi = max(prices[right] - prices[left], maxi)
+        return maxi
+
+obj = Solution()
+print(obj.maxProfit([2,1,2,1,0,1,2]))
+
+#2. Move Zeroes
+class Solution:
+    def moveZeroes(self, nums: list[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        left = 0
+        for right in range(len(nums)):
+            if nums[right] != 0:
+                temp = nums[left]
+                nums[left] = nums[right]
+                nums[right] = temp
+                left += 1
