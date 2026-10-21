@@ -1,0 +1,57 @@
+#########################################################DSA##########################################
+1. Maximum Subarray
+class Solution:
+    def maxSubArray(self, nums: list[int]) -> int:
+        currentSum = nums[0]
+        maxSum = nums[0]
+        for i in range(1, len(nums)):
+            currentSum = max(nums[i], currentSum+ nums[i])
+            maxSum = max(maxSum, currentSum)
+        return maxSum
+
+2. Plus One
+class Solution:
+    def plusOne(self, digits: list[int]) -> list[int]:
+        digStr = "".join(str(i) for i in digits)
+        newDigits = int(digStr)
+        newDigits += 1
+        return [int(i) for i in str(newDigits)]
+
+3. Running Sum of 1d Array
+class Solution:
+    def runningSum(self, nums: list[int]) -> list[int]:
+        result = []
+        result.append(nums[0])
+        for i in range(1, len(nums)):
+            result.append(result[i-1] + nums[i])
+        return result
+
+#################################################System Design ##################################################
+
+Functional: what should the system do, like in case of url shortener the user should be able to shorten the URL
+Non Functional: How well should the system do ? quality standards, contraints and expectations on how the system performs
+A. Functional requirements
+These are the actual features of the application.
+
+1. Shorten a URL
+A user submits a long URL and receives a short link.
+2. Redirect users
+When someone opens the short link, the system redirects them to the original URL.
+3. Custom alias
+Users can choose a memorable link, such as short.ly/my-store.
+4. Expiration
+A short link can stop working after a specified date or time.
+
+All four describe things the system can do. Therefore, they are functional requirements.
+B. Non-functional requirements
+Now imagine millions of people are using your URL shortener. The system must work well under that pressure.
+1. Performance
+Redirects should be very fast, for example, under 100 ms for a defined percentile of requests.
+2. Security
+Short codes should be difficult to guess, and malicious URLs should be handled safely.
+3. Availability
+Links should continue working even if a server fails. For example, we might target 99.99% availability.
+4. Scalability
+The system should handle increasing numbers of users and requests without becoming too slow.
+
+Notice that numbers like 100 ms and 99.99% are example targets, not universal rules. In an interview, you should clarify the targets with the interviewer.
