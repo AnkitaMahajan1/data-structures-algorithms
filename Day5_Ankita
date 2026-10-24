@@ -1,0 +1,48 @@
+################################################### DSA #################################################
+1.Group Anagrams
+class Solution:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+        groups = {}
+        for i in strs:
+            key = "".join(sorted(i))
+            if key not in groups:
+                groups[key] = []
+            groups[key].append(i)
+        return list(groups.values())
+
+2. Top K Frequent Elements
+class Solution:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+        freq = {}
+        for i in nums:
+            if i in freq:
+                freq[i] += 1
+            else:
+                freq[i] = 1
+        sorted_nums = sorted(freq,key=freq.get, reverse=True)
+        result = sorted_nums[:k]
+        return result
+
+3. First Unique Character in a String
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        freq = {}
+        for i in range(len(s)):
+            if s[i] in freq:
+                freq[s[i]] += 1
+            else:
+                freq[s[i]] = 1
+        for i in range(len(s)):
+            if freq[s[i]] == 1:
+                return i
+        return -1
+
+
+
+################################################## SD ##################################################
+
+Choosing the SQL vs No SQL DB:
+Choosing the type of database completely depends on the data model, In case of transaction and defined relationships, we can go with relational databases
+for storing session and cache data we can use key value stores like redis, for dynamic data object like storing mobile specific we can make use of object data store like ongo DB 
+and for storing large messaging data we can use large column database like cassandra.
+Don't choose NoSQL just because you expect a lot of users, and don't choose SQL just because it is familiar.
